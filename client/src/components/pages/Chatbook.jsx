@@ -31,8 +31,8 @@ const Chatbook = () => {
     });
   };
 
-  const addMessages = (data) => {
-    setActiveChat((prevActiveChat) => ({
+  const addMessage = (data) => {
+    setActiveChat(prevActiveChat => ({
       recipient: prevActiveChat.recipient,
       messages: prevActiveChat.messages.concat(data),
     }));
@@ -47,9 +47,9 @@ const Chatbook = () => {
   }, []);
 
   useEffect(() => {
-    socket.on("message", addMessages);
+    socket.on("message", addMessage);
     return () => {
-      socket.off("message", addMessages);
+      socket.off("message", addMessage);
     };
   }, []);
 
