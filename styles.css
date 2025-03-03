@@ -1,7 +1,4 @@
 /* Your Code Here! */
-
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,600");
-
 :root {
   --primary: #396dff;
   --grey: #f7f7f7;
@@ -13,29 +10,33 @@
   --l: 24px;
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
 body {
-  margin: 0;
   font-family: "Open Sans", sans-serif;
+  margin: 0;
+}
+
+.navContainer {
+  background-color: var(--primary);
+  padding: var(--s) var(--s);
+}
+.navTitle {
+  color: var(--white);
+  font-size: 20px;
+  margin: 0;
+  font-weight: normal;
+}
+
+.catimg {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .u-textCenter {
   text-align: center;
-}
-
-.navContainer {
-  padding: var(--s) var(--m);
-  background-color: var(--primary);
-}
-
-.navTitle {
-  color: var(--white);
-  font-size: 20px;
-  /* Below cancels out some of the default styling of h1 */
-  margin: 0; 
-  font-weight: normal;
-}
-
-.avatar {
-  max-width: 100%;
-  border-radius: var(--m);
 }
