@@ -1,25 +1,33 @@
 /* Your Code Here! */
-
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,600");
-
 :root {
   --primary: #396dff;
   --grey: #f7f7f7;
   --white: #fff;
+
+  --xs: 4px;
+  --s: 8px;
+  --m: 16px;
+  --l: 24px;
 }
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 
 body {
   font-family: "Open Sans", sans-serif;
+  margin: 0;
+}
+
+.navContainer {
+  background-color: var(--primary);
+  padding: var(--s) var(--s);
+}
+.navTitle {
+  color: var(--white);
+  font-size: 20px;
+  margin: 0;
+  font-weight: normal;
 }
 
 .u-textCenter {
   text-align: center;
-}
-
-.navTitle {
-  color: var(--primary);
-  font-size: 20px;
-  /* Below cancels out some of the default styling of h1 */
-  margin: 0; 
-  font-weight: normal;
 }
