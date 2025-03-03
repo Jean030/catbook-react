@@ -28,6 +28,9 @@ body {
   font-weight: normal;
 }
 
+.catimg {
+  border-radius: 50px;
+}
 .u-textCenter {
   text-align: center;
 }
