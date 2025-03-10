@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import SingleStory from "../modules/SingleStory";
-import NewStory from "../modules/NewPostInput";
+import { NewStory } from "../modules/NewPostInput";
 // TODO (step4): import NewStory
 // TODO (step6): remove SingleStory import, import Card
 
@@ -9,6 +9,11 @@ const Feed = () => {
 
   // TODO (step4): implement a callback function addNewStory that adds a
   // new story to the stories state
+  const addNewStory = (value) => {
+    setStories(stories.concat(value));
+  };
+  // create a new function addNewStory, parameter: value, do what: setStories
+  // stories.concat(value): creates a new array with the new story(value) added to the end
 
   useEffect(() => {
     const story1 = {
@@ -42,7 +47,12 @@ const Feed = () => {
     storiesList = <div>No stories!</div>;
   }
 
-  return <NewStory /> > <div>{storiesList}</div>;
+  return (
+    <div>
+      <NewStory addNewStory={addNewStory} />
+      {storiesList}
+    </div>
+  );
   // TODO (step4): add in the NewStory component and pass down addStory as a prop
 };
 
