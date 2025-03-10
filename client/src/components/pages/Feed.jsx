@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import SingleStory from "../modules/SingleStory";
 // TODO (step4): import NewStory
 // TODO (step6): remove SingleStory import, import Card
@@ -6,19 +6,17 @@ import SingleStory from "../modules/SingleStory";
 const Feed = () => {
   // TODO (step2): define a state called "stories" to hold stories
 
-  // TODO (step4): implement a callback function addNewStory that adds a 
+  // TODO (step4): implement a callback function addNewStory that adds a
   // new story to the stories state
-  
 
   useEffect(() => {
     // TODO (step2): assign HARDCODED dummy values to the stories state
-    // a story should be an object of the form: 
+    // a story should be an object of the form:
     // {
     //   _id: "some random string of letters",
     //   creator_name: "creator name",
     //   content: "story content",
     // }
-    
   }, []);
 
   return <SingleStory _id="test_id" creator_name="Evan" content="test" />;
