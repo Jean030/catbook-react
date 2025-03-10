@@ -10,6 +10,7 @@ import "./NewPostInput.css";
  * @param {string} storyId optional prop, used for comments
  * @param {({storyId, value}) => void} onSubmit: (function) triggered when this post is submitted, takes {storyId, value} as parameters
  */
+
 const NewPostInput = (props) => {
   const [value, setValue] = useState("");
 
@@ -48,16 +49,14 @@ const NewPostInput = (props) => {
 
 /**
  * New Story is a New Post component for stories
- * 
+ *
  * Proptypes
  * @param {({value}) => void} addNewStory: (function) triggered when a story is submitted, takes {value} as parameters
  */
 const NewStory = (props) => {
   // TODO (step4): implement addStory, a callback function that takes in a story
   // and calls the addNewStory prop from Feed
-  const addStory = (value) => {
-    
-  };
+  const addStory = (value) => {};
 
   // TODO (step4): render a NewPostInput that uses addStory as its onSubmit prop
 };
@@ -72,9 +71,7 @@ const NewStory = (props) => {
 const NewComment = (props) => {
   // TODO (step8): implement addComment, a callback function that takes in a comment
   // and calls the addNewComment prop from Card
-  const addComment = (value) => {
-    
-  };
+  const addComment = (value) => {};
 
   // TODO (step8): render a NewPostInput that uses addComment as its onSubmit prop
 };

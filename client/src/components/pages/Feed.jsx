@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import SingleStory from "../modules/SingleStory";
+import NewStory from "../modules/NewPostInput";
 // TODO (step4): import NewStory
 // TODO (step6): remove SingleStory import, import Card
 
 const Feed = () => {
   const [stories, setStories] = useState([]);
 
-  // TODO (step4): implement a callback function addNewStory that adds a 
+  // TODO (step4): implement a callback function addNewStory that adds a
   // new story to the stories state
-  
 
   useEffect(() => {
     const story1 = {
@@ -27,7 +27,7 @@ const Feed = () => {
       content: "story3",
     };
     const hardcodedStories = [story1, story2, story3];
-    
+
     setStories(hardcodedStories);
   }, []);
 
@@ -42,11 +42,7 @@ const Feed = () => {
     storiesList = <div>No stories!</div>;
   }
 
-  return (
-    <div>
-      {storiesList}
-    </div>
-  );
+  return <NewStory /> > <div>{storiesList}</div>;
   // TODO (step4): add in the NewStory component and pass down addStory as a prop
 };
 
