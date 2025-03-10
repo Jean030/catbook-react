@@ -5,7 +5,7 @@ import SingleStory from "../modules/SingleStory";
 
 const Feed = () => {
   // TODO (step2): define a state called "stories" to hold stories
-
+  const [stories, setStories] = useState([]);
   // TODO (step4): implement a callback function addNewStory that adds a
   // new story to the stories state
 
