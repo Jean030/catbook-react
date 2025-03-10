@@ -56,9 +56,12 @@ const NewPostInput = (props) => {
 const NewStory = (props) => {
   // TODO (step4): implement addStory, a callback function that takes in a story
   // and calls the addNewStory prop from Feed
-  const addStory = (value) => {};
+  const addStory = (a_story) => {
+    props.addNewStory({ content: a_story, creator_name: "Anonymous User", _id: "random_id" });
+  };
 
   // TODO (step4): render a NewPostInput that uses addStory as its onSubmit prop
+  return <NewPostInput defaultText="Input your story here" onSubmit={addStory} />;
 };
 
 /**
