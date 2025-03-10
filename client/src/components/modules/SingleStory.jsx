@@ -13,8 +13,8 @@ import Card from "./Card.css";
 const SingleStory = (props) => {
   return (
     <div className="Card-story">
-      <props.creator_name className=".Card-storyUser" />
-      props.content
+      <span className=".u">{props.creator_name}</span>
+      <p className=".Card-storyContent">{props.content}</p>
       {/* TODO (step1): use JSX and props to render story creator and content */}
     </div>
   );
