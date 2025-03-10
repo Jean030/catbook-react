@@ -6,9 +6,8 @@ import SingleStory from "../modules/SingleStory";
 const Feed = () => {
   const [stories, setStories] = useState([]);
 
-  // TODO (step4): implement a callback function addNewStory that adds a 
+  // TODO (step4): implement a callback function addNewStory that adds a
   // new story to the stories state
-  
 
   useEffect(() => {
     const story1 = {
@@ -27,7 +26,7 @@ const Feed = () => {
       content: "story3",
     };
     const hardcodedStories = [story1, story2, story3];
-    
+
     setStories(hardcodedStories);
   }, []);
 
@@ -35,8 +34,22 @@ const Feed = () => {
     <div>
       <SingleStory _id="test_id" creator_name="Evan" content="test" />
       {JSON.stringify(stories)}
+      {/* Stringify "stories" state, which has an initial value of empty list[], and then set to be "hardcodedStories" as useEffect is called out at its creation */}
     </div>
   );
+
+  return stories.map((oneStory) => {
+    return (
+      <div>
+        <SingleStory
+          _id={oneStory._id}
+          creator_name={oneStory.creator_name}
+          content={oneStory.content}
+        />
+      </div>
+    );
+  });
+
   // TODO (step3): map the state to SingleStory components
   // TODO (step4): add in the NewStory component and pass down addStory as a prop
   // TODO (step6): use Card instead of SingleStory, passing down the same props
