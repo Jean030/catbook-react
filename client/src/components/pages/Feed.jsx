@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 // TODO (step1): import SingleStory
 import SingleStory from "../modules/SingleStory";
 // TODO (step4): import NewStory
@@ -20,13 +20,7 @@ const Feed = () => {
     // }
   }, []);
 
-  return (
-    <SingleStory
-      _id="test_id"
-      creator_name="test_creator_name"
-      content="test_content"
-    ></SingleStory>
-  );
+  return <SingleStory _id="test_id" creator_name="test_creator_name" content="test_content" />;
   // TODO (step1): render a SingleStory with hardcoded props
   // TODO (step2): render the raw stories data from state--use JSON.stringify(*list*)
   // TODO (step3): map the state to SingleStory components

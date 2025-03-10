@@ -1,5 +1,5 @@
 import React from "react";
-
+import Card from "./Card.css";
 // TODO (step1): import Card.css
 
 /**
@@ -13,7 +13,8 @@ import React from "react";
 const SingleStory = (props) => {
   return (
     <div className="Card-story">
-      This is a SingleStory!
+      <props.creator_name className=".Card-storyUser" />
+      props.content
       {/* TODO (step1): use JSX and props to render story creator and content */}
     </div>
   );
