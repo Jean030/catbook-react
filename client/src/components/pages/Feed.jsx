@@ -30,25 +30,21 @@ const Feed = () => {
     setStories(hardcodedStories);
   }, []);
 
-  return (
-    <div>
-      <SingleStory _id="test_id" creator_name="Evan" content="test" />
-      {JSON.stringify(stories)}
-      {/* Stringify "stories" state, which has an initial value of empty list[], and then set to be "hardcodedStories" as useEffect is called out at its creation */}
-    </div>
-  );
+  let storieslist = null;
+  const hasStories = stories.length != 0;
+  if (hasStories) {
+    storieslist = stories.map((storyObj) => {
+      <SingleStory
+        _id={storyObj._id}
+        creator_name={storyObj.creator_name}
+        content={storyObj.content}
+      />;
+    });
+  } else {
+    storieslist = <div>There is no story.</div>;
+  }
 
-  return stories.map((oneStory) => {
-    return (
-      <div>
-        <SingleStory
-          _id={oneStory._id}
-          creator_name={oneStory.creator_name}
-          content={oneStory.content}
-        />
-      </div>
-    );
-  });
+  return <div>{storieslist}</div>;
 
   // TODO (step3): map the state to SingleStory components
   // TODO (step4): add in the NewStory component and pass down addStory as a prop
