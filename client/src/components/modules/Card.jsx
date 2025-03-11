@@ -58,14 +58,14 @@ const Card = (props) => {
       />
     ));
   } else {
-    commentsList = <div>No comments!</div>;
+    commentsList = <div>No comments yet!</div>;
   }
 
   return (
     <div className="Card-container">
       <SingleStory _id={props._id} creator_name={props.creator_name} content={props.content} />
-      <NewComment addNewStory={addNewComment} />
       {commentsList}
+      <NewComment addNewComment={addNewComment} />
     </div>
   );
   // TODO (step8): add in the NewComment component (refer to Feed)
