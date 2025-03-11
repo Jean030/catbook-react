@@ -16,7 +16,7 @@ import { NewComment } from "./NewPostInput";
  * @param {ContentObject[]} comments
  * @param {ContentObject} story
  */
-const CommentsBlock = () => {
+const CommentsBlock = (props) => {
   return (
     <div className="Card-commentSection">
       <div className="story-comments">
