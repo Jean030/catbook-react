@@ -64,10 +64,9 @@ const Card = (props) => {
     <div className="Card-container">
       <SingleStory _id={props._id} creator_name={props.creator_name} content={props.content} />
       {commentsList}
-      <NewComment storyId={props._id} addNewComment={addNewComment} />
+      <CommentsBlock storyId={props._id} addNewComment={addNewComment} />
     </div>
   );
-  // TODO (step9): use CommentsBlock
 };
 
 export default Card;
