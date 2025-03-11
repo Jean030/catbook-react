@@ -24,19 +24,21 @@ const Card = (props) => {
 
   useEffect(() => {
     const comment1 = {
-      _id: "id1",
+      _id: "commentid1",
       creator_name: "commentor1",
-      parent_id: "id1",
+      parent: "id1",
       content: "comment1",
     };
     const comment2 = {
-      _id: "id2",
+      _id: "commentid2",
       creator_name: "commentor2",
+      parent: "id2",
       content: "comment2",
     };
     const comment3 = {
-      _id: "id3",
+      _id: "commentid3",
       creator_name: "commentor3",
+      parent: "id3",
       content: "comment3",
     };
 
