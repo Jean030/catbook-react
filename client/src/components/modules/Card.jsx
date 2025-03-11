@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import SingleStory from "./SingleStory";
 import SingleComment from "./SingleComment";
-// TODO (step8): import NewComment
+import { NewComment } from "./NewPostInput";
 // TODO (step9): import CommentsBlock
 
 import "./Card.css";
@@ -16,9 +16,6 @@ import "./Card.css";
  */
 const Card = (props) => {
   const [comments, setComments] = useState([]);
-
-  // TODO (step8): implement a callback function addNewComment that adds a 
-  // new comment to the comments state
 
   useEffect(() => {
     const comment1 = {
@@ -41,14 +38,24 @@ const Card = (props) => {
     };
     const hardcodedComments = [comment1, comment2, comment3];
 
-    setComments(hardcodedComments.filter((comment)=>comment.parent==props._id));
+    setComments(hardcodedComments.filter((comment) => comment.parent == props._id));
   }, []);
+
+  // TODO (step8): implement a callback function addNewComment that adds a
+  // new comment to the comments state
+  const addNewComment = (value) => {
+    setComments(comments.concat(value));
+  };
 
   let commentsList = null;
   const hasComments = comments.length !== 0;
   if (hasComments) {
     commentsList = comments.map((commentObj) => (
-      <SingleComment _id={commentObj._id} creator_name={commentObj.creator_name} content={commentObj.content}/>
+      <SingleComment
+        _id={commentObj._id}
+        creator_name={commentObj.creator_name}
+        content={commentObj.content}
+      />
     ));
   } else {
     commentsList = <div>No comments!</div>;
@@ -56,10 +63,11 @@ const Card = (props) => {
 
   return (
     <div className="Card-container">
-      <SingleStory _id={props._id} creator_name={props.creator_name} content={props.content}/>
+      <SingleStory _id={props._id} creator_name={props.creator_name} content={props.content} />
+      <NewComment addNewStory={addNewComment} />
       {commentsList}
     </div>
-  )
+  );
   // TODO (step8): add in the NewComment component (refer to Feed)
   // TODO (step9): use CommentsBlock
 };

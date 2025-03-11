@@ -5,11 +5,6 @@ import { NewStory } from "../modules/NewPostInput";
 const Feed = () => {
   const [stories, setStories] = useState([]);
 
-  // updates the stories state so that the new story is added immediately
-  const addNewStory = (value) => {
-    setStories(stories.concat(value));
-  }
-
   useEffect(() => {
     const story1 = {
       _id: "id1",
@@ -27,9 +22,14 @@ const Feed = () => {
       content: "story3",
     };
     const hardcodedStories = [story1, story2, story3];
-    
+
     setStories(hardcodedStories);
   }, []);
+
+  // updates the stories state so that the new story is added immediately
+  const addNewStory = (value) => {
+    setStories(stories.concat(value));
+  };
 
   let storiesList = null;
   const hasStories = stories.length !== 0;
@@ -43,7 +43,7 @@ const Feed = () => {
 
   return (
     <div>
-      <NewStory addNewStory={addNewStory}/>
+      <NewStory addNewStory={addNewStory} />
       {storiesList}
     </div>
   );
