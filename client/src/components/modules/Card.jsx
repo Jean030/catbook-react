@@ -45,14 +45,26 @@ const Card = (props) => {
     setComments(hardcodedComments.filter((comment) => comment.parent == props._id));
   }, []);
 
+  let commentsList = null;
+  const hasComments = comments.length !== 0;
+  if (hasComments) {
+    commentsList = comments.map((commentObj) => (
+      <SingleComment
+        _id={commentObj._id}
+        creator_name={commentObj.creator_name}
+        content={commentObj.content}
+      />
+    ));
+  } else {
+    commentsList = <div>No comments yet!</div>;
+  }
+
   return (
     <div className="Card-container">
-      <SingleComment _id={props._id} creator_name={props.creator_name} content={props.content} />
-      {JSON.stringify(comments)}
+      <SingleStory _id={props._id} creator_name={props.creator_name} content={props.content} />
+      {commentsList}
     </div>
   );
-  // TODO (step7): map comments from state into SingleComment
-  // components (refer to Feed)
   // TODO (step8): add in the NewComment component (refer to Feed)
   // TODO (step9): use CommentsBlock
 };
