@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SingleStory from "./SingleStory";
 
 // TODO (step7): import SingleComment
@@ -27,6 +26,7 @@ const Card = (props) => {
     const comment1 = {
       _id: "id1",
       creator_name: "commentor1",
+      parent_id: "id1",
       content: "comment1",
     };
     const comment2 = {
@@ -39,15 +39,15 @@ const Card = (props) => {
       creator_name: "commentor3",
       content: "comment3",
     };
+
+    const hardcodedComments = [comment1, comment2, comment3];
+
+    setComments(hardcodedComments.filter((comment) => comment.parent == props._id));
   }, []);
-  const hardcodedComments = [comment1, comment2, comment3];
-
-  setComments(hardcodedComments);
-
   // TODO (step6): render a SingleStory using props,
   // and render the comments from state (with JSON.stringify)
   return (
-    <div>
+    <div className="Card-container">
       <SingleStory _id={props._id} creator_name={props.creator_name} content={props.content} />
       {JSON.stringify(comments)}
     </div>
