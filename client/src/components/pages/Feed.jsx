@@ -7,9 +7,10 @@ const Feed = () => {
   const [stories, setStories] = useState([]);
 
   // updates the stories state so that the new story is added immediately
+  // create a function addNewStory, which sets the stories state
   const addNewStory = (value) => {
     setStories(stories.concat(value));
-  }
+  };
 
   useEffect(() => {
     const story1 = {
@@ -28,7 +29,7 @@ const Feed = () => {
       content: "story3",
     };
     const hardcodedStories = [story1, story2, story3];
-    
+
     setStories(hardcodedStories);
   }, []);
 
@@ -44,8 +45,10 @@ const Feed = () => {
   }
 
   return (
+    // In the component NewStory, addNewStory is passed as a prop
+    // This allows the NewStory component to communicate back with Feed component and update Feed state
     <div>
-      <NewStory addNewStory={addNewStory}/>
+      <NewStory addNewStory={addNewStory} />
       {storiesList}
     </div>
   );
