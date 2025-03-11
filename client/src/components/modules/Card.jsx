@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { UseState } from "react";
+import { useState } from "react";
 import SingleStory from "./SingleStory";
 
 // TODO (step7): import SingleComment
@@ -48,7 +48,8 @@ const Card = (props) => {
   // and render the comments from state (with JSON.stringify)
   return (
     <div>
-      <SingleStory addNewStory={addNewStory} />
+      <SingleStory _id={props._id} creator_name={props.creator_name} content={props.content} />
+      {JSON.stringify(comments)}
     </div>
   );
   // TODO (step7): map comments from state into SingleComment
