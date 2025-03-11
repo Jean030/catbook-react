@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
-// TODO (step6): import useState from react
-// TODO (step6): import SingleStory
+import { UseState } from "react";
+import SingleStory from "./SingleStory";
+
 // TODO (step7): import SingleComment
 // TODO (step8): import NewComment
 // TODO (step9): import CommentsBlock
 
 import "./Card.css";
+import react from "react";
 
 /**
  * Card is a component for displaying content like stories
@@ -16,24 +18,39 @@ import "./Card.css";
  * @param {string} content of the story
  */
 const Card = (props) => {
-  // TODO (step6): define a state called "comments" to hold comments (refer to Feed)
+  const [comments, setComments] = useState([]);
 
-  // TODO (step8): implement a callback function addNewComment that adds a 
+  // TODO (step8): implement a callback function addNewComment that adds a
   // new comment to the comments state
 
   useEffect(() => {
-    // TODO (step6): assign HARDCODED dummy values to the comments state
-    // a comment should be an object of the form: 
-    // {
-    //   _id: "some random string of letters",
-    //   creator_name: "creator name",
-    //   parent: "parent story id",
-    //   content: "story content",
-    // }
+    const comment1 = {
+      _id: "id1",
+      creator_name: "commentor1",
+      content: "comment1",
+    };
+    const comment2 = {
+      _id: "id2",
+      creator_name: "commentor2",
+      content: "comment2",
+    };
+    const comment3 = {
+      _id: "id3",
+      creator_name: "commentor3",
+      content: "comment3",
+    };
   }, []);
+  const hardcodedComments = [comment1, comment2, comment3];
+
+  setComments(hardcodedComments);
 
   // TODO (step6): render a SingleStory using props,
   // and render the comments from state (with JSON.stringify)
+  return (
+    <div>
+      <SingleStory addNewStory={addNewStory} />
+    </div>
+  );
   // TODO (step7): map comments from state into SingleComment
   // components (refer to Feed)
   // TODO (step8): add in the NewComment component (refer to Feed)
