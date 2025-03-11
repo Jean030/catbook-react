@@ -1,5 +1,6 @@
 import React from "react";
-// TODO (step9): import SingleComment and NewComment
+import SingleComment from "./SingleComment";
+import { NewComment } from "./NewPostInput";
 
 /**
  * @typedef ContentObject
@@ -19,7 +20,8 @@ const CommentsBlock = () => {
   return (
     <div className="Card-commentSection">
       <div className="story-comments">
-        {/* TODO (step9): render comments */}
+        <SingleComment _id="commentid1" creator_name="person1" content="comment1" />
+        <NewComment />
       </div>
     </div>
   );
