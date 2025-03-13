@@ -9,8 +9,10 @@ const Feed = () => {
   // updates the stories state so that the new story is added immediately
   const addNewStory = (value) => {
     // TODO (step2): post the new story to the server
-    setStories([value].concat(stories));
-  }
+    post("api/story", { story: value }).then((newStoryObjj) => {
+      setStories([newStoryObjj].concat(stories));
+    });
+  };
 
   useEffect(() => {
     // TODO (step1): fetch the stories from the server

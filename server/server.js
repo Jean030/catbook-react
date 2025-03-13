@@ -11,7 +11,7 @@
 | - Sets up error handling in case something goes wrong when handling a request (TODO: WORKSHOP 3)
 | - Actually starts the webserver
 */
-require('dotenv').config();
+require("dotenv").config();
 
 // import libraries needed for the webserver to work!
 const express = require("express"); // backend framework for our node server.
@@ -50,7 +50,11 @@ app.get("/api/stories", (req, res) => {
 });
 
 // TODO (step2): implement POST /api/story endpoint
-
+app.post("/api/story", (req, res) => {
+  const story = req.body.story;
+  stories.push(story);
+  res.send(story);
+});
 // TODO (step3): implement GET /api/comments endpoint
 
 // TODO (step4): implement POST /api/comment endpoint
