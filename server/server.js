@@ -17,18 +17,16 @@ require("dotenv").config();
 const express = require("express"); // backend framework for our node server.
 const path = require("path"); // provide utilities for working with file and directory paths
 
+// create a new express server
+const app = express();
 // allow us to make post requests
 app.use(express.json());
 
 // TODO (step5.3, step5.4): implement middleware for /api routes
 // import the router from the API file
-const app = require("./api.js");
-// create a new express server
-const app = express();
-//alow us to make post requests
-app.use(express.json());
+const router = require("./api");
 // connect API routes from api.js
-app.use("/api", api);
+app.use("/api", router);
 
 // anything else falls to this "not found" case
 app.all("*", (req, res) => {
