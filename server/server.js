@@ -11,7 +11,7 @@
 | - Sets up error handling in case something goes wrong when handling a request (TODO: WORKSHOP 3)
 | - Actually starts the webserver
 */
-require('dotenv').config();
+require("dotenv").config();
 
 // import libraries needed for the webserver to work!
 const express = require("express"); // backend framework for our node server.
@@ -45,6 +45,26 @@ const story3 = {
 };
 const stories = [story1, story2, story3];
 
+const comment1 = {
+  _id: "commentid1",
+  creator_name: "Daniel Hong",
+  parent: "id1",
+  content: "Hi Stanley",
+};
+const comment2 = {
+  _id: "commentid2",
+  creator_name: "Lucas Bautista",
+  parent: "id2",
+  content: "I agree!",
+};
+const comment3 = {
+  _id: "commentid3",
+  creator_name: "Stanley Zhao",
+  parent: "id1",
+  content: "Hi Daniel",
+};
+const comments = [comment1, comment2, comment3];
+
 app.get("/api/stories", (req, res) => {
   res.send(stories);
 });
@@ -55,9 +75,16 @@ app.post("/api/story", (req, res) => {
   const newStory = req.body;
   stories.push(newStory);
   res.send(newStory);
-})
+});
 
 // TODO (step3): implement GET /api/comments endpoint
+app.get("/api/comments", (req, res) => {
+  const parent = req.query.parent;
+  const filteredComments = comments.filter((comment) => {
+    comment.parent == parent;
+  });
+  res.send(filteredComments);
+});
 
 // TODO (step4): implement POST /api/comment endpoint
 
