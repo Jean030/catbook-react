@@ -16,6 +16,7 @@ import "./Card.css";
 const Card = (props) => {
   const [comments, setComments] = useState([]);
 
+  // addNewComment definition
   const addNewComment = (comment) => {
     // TODO (step4): post the new comment to the server
     post("/api/comment", comment).then((commentObj) => {
@@ -32,7 +33,7 @@ const Card = (props) => {
 
   return (
     <div className="Card-container">
-      <SingleStory _id={props._id} creator={props.creator_name} content={props.content} />
+      <SingleStory _id={props._id} creator_name={props.creator_name} content={props.content} />
       <CommentsBlock story={props} comments={comments} addNewComment={addNewComment} />
     </div>
   );
