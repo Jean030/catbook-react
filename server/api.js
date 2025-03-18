@@ -10,15 +10,14 @@
 const express = require("express");
 
 // import models so we can interact with the database
-const Story = require("./models/story")
+const Story = require("./models/story");
 // TODO (step1) import the comment model
 
 // api endpoints: all these paths will be prefixed with "/api/"
 const router = express.Router();
 
-
 router.get("/stories", (req, res) => {
-  // TODO (step1) get all the stories from the database and send response back to client 
+  // TODO (step1) get all the stories from the database and send response back to client
 });
 
 router.post("/story", (req, res) => {
@@ -26,7 +25,9 @@ router.post("/story", (req, res) => {
 });
 
 router.get("/comment", (req, res) => {
-  Comment.find({ /* TODO (step2) input the parent parameter here*/ }).then((comments) => {
+  Comment.find({
+    /* TODO (step2) input the parent parameter here*/
+  }).then((comments) => {
     res.send(comments);
   });
 });
@@ -40,6 +41,5 @@ router.all("*", (req, res) => {
   console.log(`API route not found: ${req.method} ${req.url}`);
   res.status(404).send({ msg: "API route not found" });
 });
-
 
 module.exports = router;
